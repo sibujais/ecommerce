@@ -1,97 +1,196 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📘 E-Commerce App — React Native Assignment (SDE I)
 
-# Getting Started
+A complete e-commerce mobile application built using **React Native**, **Zustand**, **MMKV**, **Google Sign-In**, and **React Navigation**.  
+The project includes login, product listing, product details, shopping cart, and barcode scanning functionality.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+# 🚀 Features Implemented
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## **1. Login Screen**
+- Google OAuth login using `@react-native-google-signin/google-signin`
+- Handles loading, success, and error states
+- Saves user data securely using **MMKV**
+- Logout functionality included
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+---
 
-```sh
-# Using npm
-npm start
+## **2. Product Listing Screen**
+- Displays products in **2-column grid layout**
+- Shows product image, name, price, discount badge
+- Quick Add/Remove to cart directly in listing
+- Pagination (load more)
+- Pull-to-refresh
+- Search bar with **debounced API calls**
+- Floating cart button with item count badge
+- Skeleton loader UI while fetching
 
-# OR using Yarn
-yarn start
-```
+---
 
-## Step 2: Build and run your app
+## **3. Product Details Screen**
+- Image carousel with zoom feature
+- Product name, price, description, specifications
+- Quantity selector
+- Add/Update cart quantity
+- Share product option
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+---
 
-### Android
+## **4. Cart Screen**
+- Shows all cart items with images
+- Quantity increase/decrease
+- Remove item with confirmation
+- Apply coupon (mock)
+- Price summary: subtotal, discount, tax, total
+- Checkout button
+- Empty cart view with “Continue Shopping”
+- Cart state persisted with MMKV
 
-```sh
-# Using npm
+---
+
+## **5. Barcode Scanner Screen**
+- Uses **react-native-vision-camera v4** for scanning
+- Detects barcodes/QR codes
+- Camera permission handling
+- Auto-navigate to product details after scanning
+- Flashlight toggle
+- Stores scan history (last 5 items)
+
+---
+
+# 🏗 Architecture Overview
+
+The app uses clean, modular, scalable architecture.
+
+src/
+│
+├── api/
+│ └── productApi.js
+│
+├── assets/
+│ └── ecommerce-Logo.png
+│
+├── components/
+│ ├── CartItem.js
+│ ├── ProductCard.js
+│
+├── navigation/
+│ └── AppNavigator.js
+│ └── MainStack.js
+│
+├── screens/
+│ ├── LoginScreen.js
+│ ├── ProductListScreen.js
+│ ├── ProductDetailsScreen.js
+│ ├── CartScreen.js
+│ └── ScannerScreen.js
+│ └── SplashScreen.js
+│
+├── store/
+│ ├── useAuthStore.js
+│ ├── useProductStore.js
+│ └── useCartStore.js
+│ └── useScanStore.js
+│
+├── utils/
+│ ├── storage.js
+
+
+---
+
+# 🧠 State Management (Zustand)
+
+### **useAuthStore**
+Handles:
+- Google Sign-In
+- Secure storage
+- Error/loading states
+
+### **useProductStore**
+Handles:
+- API fetching
+- Pagination
+- Search functionality
+- Product list state
+- Skeleton loading state
+
+### **useCartStore**
+Handles:
+- Add/Remove/Update cart items
+- Price calculations
+- Coupon logic
+- MMKV persistence
+
+---
+
+# 🗄 MMKV Local Storage Keys
+
+| Key | Description |
+|------|-------------|
+| `user` | Logged-in user data |
+| `cart_items` | Cart content |
+| `scan_history` | Last 5 scanned codes |
+
+---
+
+# 🌐 API Info
+
+### Endpoint
+POST https://catalog-management-system-dev-ak3ogf6zea-uc.a.run.app/cms/product/v2/filter/product
+
+
+### Barcode Matching Rule
+Match scanned code with:
+variants[].barcodes[]
+
+
+---
+
+# 📦 NPM Packages Used
+
+| Package | Purpose |
+|--------|----------|
+| `@react-native-google-signin/google-signin` | Google OAuth |
+| `zustand` | Global state management |
+| `react-native-mmkv` | Fast persistent storage |
+| `axios` | API calls |
+| `react-native-vision-camera` | Barcode scanning |
+| `react-native-reanimated` | Required for camera |
+| `@react-navigation/native` | Navigation |
+| `@react-navigation/stack` | Stack navigation |
+| `react-native-share` | Share feature |
+| `lodash.debounce` | Debounced search |
+
+---
+
+# ▶️ How to Run the App
+
+### Install dependencies
+npm install
+### iOS only: install pods
+cd ios
+pod install
+cd ..
+
+### Run on Android
 npm run android
 
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+### Run on iOS
 npm run ios
 
-# OR using Yarn
-yarn ios
-```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+---
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+# 📸 Screenshots / GIFs
+(Add your UI images here)
 
-## Step 3: Modify your app
+---
 
-Now that you have successfully run the app, let's make changes!
+# ✔ Completed as per assignment requirements
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+All five required screens & features have been implemented with clean architecture and best practices.
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+---
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
 
-## Congratulations! :tada:
 
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.

@@ -180,6 +180,18 @@ npm run ios
 
 # 📸 Screenshots / GIFs
 (Add your UI images here)
+<h3 align="center">📸 App Screenshots</h3>
+
+splas- https://github.com/sibujais/ecommerce/blob/bfef89b4ff4cf0e7299479040603b250d827290d/Splash.jpg
+loinpae= https://github.com/sibujais/ecommerce/blob/bfef89b4ff4cf0e7299479040603b250d827290d/loginPage.jpg
+productscreen - https://github.com/sibujais/ecommerce/blob/bfef89b4ff4cf0e7299479040603b250d827290d/productscreen.jpg
+productdetail=https://github.com/sibujais/ecommerce/blob/bfef89b4ff4cf0e7299479040603b250d827290d/productdetails.jpg
+zoom -https://github.com/sibujais/ecommerce/blob/bfef89b4ff4cf0e7299479040603b250d827290d/zoom.jpg
+cartscreen- https://github.com/sibujais/ecommerce/blob/bfef89b4ff4cf0e7299479040603b250d827290d/cartscreen.jpg
+coupons -https://github.com/sibujais/ecommerce/blob/bfef89b4ff4cf0e7299479040603b250d827290d/coupons.jpg
+emptycart- https://github.com/sibujais/ecommerce/blob/bfef89b4ff4cf0e7299479040603b250d827290d/empltyCart.jpg
+permission- https://github.com/sibujais/ecommerce/blob/bfef89b4ff4cf0e7299479040603b250d827290d/cameraPermission.jpg
+scan - https://github.com/sibujais/ecommerce/blob/bfef89b4ff4cf0e7299479040603b250d827290d/Scannin.jpg
 
 ---
 

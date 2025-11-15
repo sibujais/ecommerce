@@ -17,7 +17,6 @@ const ProductDetailsScreen = ({ route, navigation }) => {
 
   const { cart, addToCart, updateQuantity, removeFromCart } = useCartStore();
 
-  // Find cart item (if exists)
   const cartItem = cart.find(c => c.productId === product.productId);
   const initialQty = cartItem?.quantity || 1;
 

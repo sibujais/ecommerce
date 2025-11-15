@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   Text,
@@ -7,11 +7,17 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
-import {useAuthStore} from "../store/useAuthStore";
+import { useAuthStore } from '../store/useAuthStore';
 
 const LoginScreen = ({ navigation }) => {
   const { user, loading, error, login } = useAuthStore();
-  console.log("user",{ user, loading, error, login })
+  console.log('user', { user, loading, error, login });
+
+  useEffect(() => {
+    if (user) navigation.replace("ProductList");
+  }, [user]);
+  
+
   if (loading) {
     return (
       <View style={styles.center}>
@@ -22,15 +28,13 @@ const LoginScreen = ({ navigation }) => {
   }
 
   if (user) {
-    navigation.replace('Products');
+    navigation.replace('ProductList');
   }
 
   return (
     <View style={styles.container}>
       <Image
-        source={{
-          uri: 'https://cdn-icons-png.flaticon.com/512/300/300221.png',
-        }}
+        source={require('../assets/ecommerce-logo.png')}
         style={styles.logo}
       />
 

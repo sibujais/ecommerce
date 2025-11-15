@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import axios from "axios";
 
-// Normalize API product → UI-friendly product format
+
 const normalizeProduct = (item, index) => {
   const variant = item?.variants?.[0] || {};
   const inv = variant?.inventorySync || {};

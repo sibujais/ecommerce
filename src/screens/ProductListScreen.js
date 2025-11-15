@@ -51,8 +51,6 @@ export default function ProductListScreen({ navigation }) {
 
   const renderItem = ({ item }) => {
     const inCart = isInCart(item.productId);
-    // console.log("inCart", item.productId);
-    // console.log("inCart", inCart);
 
     return (
       <View style={styles.card}>
@@ -104,7 +102,6 @@ export default function ProductListScreen({ navigation }) {
         />
       </View>
 
-      {/* 🔵 Product Grid */}
       <FlatList
         data={filteredProducts}
         numColumns={2}
@@ -140,7 +137,6 @@ export default function ProductListScreen({ navigation }) {
         }
       />
 
-      {/* 🛒 Floating Cart Button */}
       {cart.length > 0 && (
         <TouchableOpacity
           style={styles.cartFloating}

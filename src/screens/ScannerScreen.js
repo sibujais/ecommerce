@@ -8,7 +8,6 @@ import {
 } from "react-native";
 
 import { Camera, useCameraDevice,useCodeScanner } from "react-native-vision-camera";
-// import { useCodeScanner } from "react-native-vision-camera-code-scanner";
 
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -48,11 +47,6 @@ const ScannerScreen = ({ navigation }) => {
     codeTypes: [
       "code-128",
       "qr",
-      // "code-39",
-      // "code-93",
-      // "codabar",
-      // "ean-13",
-      // "ean-8",
     ],
     onCodeScanned: (codes) => {
       console.log("codess", codes);
@@ -66,7 +60,6 @@ const ScannerScreen = ({ navigation }) => {
     }
   });
 
-  // Match barcode with product variants
   const findProductAndNavigate = (barcode) => {
     const product = products.find((p) =>
       p.raw?.variants?.some((v) =>
@@ -98,7 +91,6 @@ const ScannerScreen = ({ navigation }) => {
   return (
     <View style={{ flex: 1 }}>
       
-      {/* Camera View */}
       <Camera
         style={StyleSheet.absoluteFill}
         device={device}
@@ -107,7 +99,6 @@ const ScannerScreen = ({ navigation }) => {
         torch={flash ? "on" : "off"}
       />
 
-      {/* Flash Toggle */}
       <TouchableOpacity
         style={styles.flashBtn}
         onPress={() => setFlash(!flash)}
@@ -119,7 +110,6 @@ const ScannerScreen = ({ navigation }) => {
         />
       </TouchableOpacity>
 
-      {/* Scan history (last 5) */}
       <View style={styles.historyBox}>
         <Text style={styles.historyTitle}>Last 5 Scans:</Text>
 

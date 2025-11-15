@@ -31,7 +31,6 @@ const CartScreen = ({ navigation }) => {
   save90: 90
 };
 
-  // → PRICE CALCULATION
   const subtotal = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -39,10 +38,9 @@ const CartScreen = ({ navigation }) => {
 const discountPercent = appliedCoupon ? couponList[appliedCoupon] : 0;
 const discount = subtotal * (discountPercent / 100);
 
-  const tax = (subtotal - discount) * 0.05; // 5% tax
+  const tax = (subtotal - discount) * 0.05; 
   const total = subtotal - discount + tax;
 
-  // → APPLY COUPON
   const applyCoupon = () => {
     const key = coupon.trim().toLowerCase();
     if (couponList[key]) {
@@ -53,7 +51,6 @@ const discount = subtotal * (discountPercent / 100);
   }
   };
 
-  // → REMOVE ITEM WITH CONFIRMATION
   const confirmRemove = (productId) => {
     Alert.alert(
       "Remove Item",
@@ -98,7 +95,6 @@ const discount = subtotal * (discountPercent / 100);
               <Text style={styles.name} numberOfLines={1}>{item.name}</Text>
               <Text style={styles.price}>₹{item.price}</Text>
 
-              {/* QUANTITY SELECTOR */}
               <View style={styles.qtyRow}>
                 <TouchableOpacity
                   onPress={() =>
@@ -126,7 +122,6 @@ const discount = subtotal * (discountPercent / 100);
               </View>
             </View>
 
-            {/* Remove Item */}
             <TouchableOpacity onPress={() => confirmRemove(item.productId)}>
               <Icon name="trash-outline" size={26} color="#d9534f" />
             </TouchableOpacity>
@@ -134,7 +129,6 @@ const discount = subtotal * (discountPercent / 100);
         )}
         ListFooterComponent={
           <View>
-            {/* COUPON SECTION */}
             <View style={styles.couponBox}>
               <TextInput
                 placeholder="Enter coupon code"
@@ -147,7 +141,6 @@ const discount = subtotal * (discountPercent / 100);
               </TouchableOpacity>
             </View>
 
-            {/* PRICE BREAKDOWN */}
             <View style={styles.summaryBox}>
               <Text style={styles.summaryRow}>
                 Subtotal: <Text style={styles.summaryValue}>₹{subtotal.toFixed(2)}</Text>

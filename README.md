@@ -179,7 +179,6 @@ npm run ios
 ---
 
 # 📸 Screenshots / GIFs
-(Add your UI images here)
 <h3 align="center">📸 App Screenshots</h3>
 
 <table>

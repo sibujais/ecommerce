@@ -64,15 +64,8 @@ The app uses clean, modular, scalable architecture.
 
 src/
 │
-├── api/
-│ └── productApi.js
-│
 ├── assets/
 │ └── ecommerce-Logo.png
-│
-├── components/
-│ ├── CartItem.js
-│ ├── ProductCard.js
 │
 ├── navigation/
 │ └── AppNavigator.js
@@ -121,6 +114,10 @@ Handles:
 - Coupon logic
 - MMKV persistence
 
+### **useScanStore**
+Handles:
+- Add/Remove scans
+
 ---
 
 # 🗄 MMKV Local Storage Keys
@@ -128,8 +125,9 @@ Handles:
 | Key | Description |
 |------|-------------|
 | `user` | Logged-in user data |
-| `cart_items` | Cart content |
-| `scan_history` | Last 5 scanned codes |
+| `cart` | Cart content |
+| `coupon` | Discount coupon 
+| `scans` | Last 5 scanned codes |
 
 ---
 
@@ -159,7 +157,6 @@ variants[].barcodes[]
 | `@react-navigation/native` | Navigation |
 | `@react-navigation/stack` | Stack navigation |
 | `react-native-share` | Share feature |
-| `lodash.debounce` | Debounced search |
 
 ---
 
@@ -173,7 +170,7 @@ pod install
 cd ..
 
 ### Run on Android
-npm run android
+npx react-native run-android
 
 ### Run on iOS
 npm run ios
